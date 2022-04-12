@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&family=Roboto:ital,wght@0,300;0,400;1,500&display=swap');
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif; 
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(238, 174, 202);
+    background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px 1px rgb(11, 11, 11);
+    width: 350px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #eee;
+    padding: 20px;
+}
+
+.form {
+    padding: 20px;
+}
+
+.form-control {
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+
+    position: relative;
+}
+
+.form-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form-control input {
+    border: 2px solid #f0f0f0;
+    display: block;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 100%;
+    padding: 7px;
+}
+
+.form-control .fa-exclamation-circle, .fa-check-circle {
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    visibility: hidden;
+    /* visibility invisível, será mostrada apartir do JavaScript caso de erro durante o preenchiento do formulário */
+}
+
+.form-control .fa-eye {
+    position: absolute;
+    top: 45px;
+    right: 28px;
+    color:rgba(0, 0, 0, .7)
+}
+
+.form-control small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.form button {
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    width: 100%;
+    min-height: 40px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+}
+
+.form button:hover,
+.form button:focus {
+    background-color: #16437E;
+    color: #ffffff;
+}
+
+.form button:active {
+    background: #09223b;
+    color: rgb(255, 255, 255, .7);
+}
+
+.form button:disabled {
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+}
+
+/* Error and Success */
+
+.form-control.success input {
+    border-color: #2ecc71;
+}
+
+.form-control.error input {
+    border-color: #e74c3c;
+}
+
+.form-control.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control.error small {
+    visibility: visible;
+    color: #e74c3c;
+}
