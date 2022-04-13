@@ -5,7 +5,8 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordConfirmation = document.getElementById('password-confirmation');
 
-const btn = document.querySelector('.fa-eye');
+const showPassword = document.querySelector('.eye-password');
+const showPasswordConfirmation = document.querySelector('.eye-password-confirmation');
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -26,7 +27,7 @@ function checkInput() {
     } else if (!checkUsername(usernameValue)) {
         setErrorFor(username, 'Apenas letras, números e sublinhados')
     } else {
-        setSuccessFor(username);   
+        setSuccessFor(username);
     }
 
     // EMAIL
@@ -35,30 +36,41 @@ function checkInput() {
     } else if (!checkEmail(emailValue)) {
         setErrorFor(email, 'Insira um email válido.')
     } else {
-        setSuccessFor(email);   
+        setSuccessFor(email);
     }
 
     // PASSWORD 
     if (passwordValue === '') {
-        setErrorFor(password, 'A senha é obrigatória.')
-    } else if (passwordValue.length < 7){
-        setErrorFor(password, 'A senha precisa ter no mínimo 7 caracteres.')
+        setErrorFor(password, 'A senha é obrigatória.');
+
+        document.querySelector('.eye-password').style.visibility = "hidden"; // hide
+    } else if (passwordValue.length < 7) {
+        setErrorFor(password, 'A senha precisa ter no mínimo 7 caracteres.');
+
+        document.querySelector('.eye-password').style.visibility = "visible"; // show
     } else {
         setSuccessFor(password);
+
+        document.querySelector('.eye-password').style.visibility = "visible"; // show
     }
 
     // PASSWORD CONFIRMATION
     if (passwordConfirmationValue === '') {
-        setErrorFor(passwordConfirmation, 'A senha é obrigatório.')
+        setErrorFor(passwordConfirmation, 'A senha é obrigatório.');
 
+        document.querySelector('.eye-password-confirmation').style.visibility = "hidden"; // hide
     } else if (passwordValue != passwordConfirmationValue) {
+        setErrorFor(passwordConfirmation, 'As senhas precisam ser iguais.');
 
-        setErrorFor(passwordConfirmation, 'As senhas precisam ser iguais.')
+        document.querySelector('.eye-password-confirmation').style.visibility = "visible"; // show
     } else if (passwordValue.length < 7) {
-        setErrorFor(passwordConfirmation,'')
+        setErrorFor(passwordConfirmation, '');
+
+        document.querySelector('.eye-password-confirmation').style.visibility = "visible"; // show
     } else {
         setSuccessFor(passwordConfirmation);
-    } 
+        document.querySelector('.eye-password-confirmation').style.visibility = "visible"; // hide
+    }
 }
 
 function setErrorFor(input, message) {
@@ -80,7 +92,10 @@ function setSuccessFor(input) {
     formControl.className = 'form-control success';
 }
 
-btn.addEventListener('click', function (){
+
+
+// Mostrar/Ocultar SENHA
+showPassword.addEventListener('click', function () {
     if (password.type == 'password') {
         password.type = 'text'
         this.style.opacity = '1'
@@ -90,6 +105,16 @@ btn.addEventListener('click', function (){
     }
 })
 
+//Mostrar/Ocultar CONFIRMAÇÃO DE SENHA
+showPasswordConfirmation.addEventListener('click', function () {
+    if (passwordConfirmation.type == 'password') {
+        passwordConfirmation.type = 'text'
+        this.style.opacity = '1'
+    } else {
+        passwordConfirmation.type = 'password'
+        this.style.opacity = '.4'
+    }
+})
 
 
 
