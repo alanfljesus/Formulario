@@ -71,6 +71,16 @@ function checkInput() {
         setSuccessFor(passwordConfirmation);
         document.querySelector('.eye-password-confirmation').style.visibility = "visible"; // hide
     }
+
+    const formControls = form.querySelectorAll('.form-control');
+
+    const formIsValid = [...formControls].every(formControl => {
+        return formControl.className === 'form-control success'
+    });
+
+    if(formIsValid) {
+        console.log('Formulário preenchido')
+    }
 }
 
 function setErrorFor(input, message) {
@@ -106,6 +116,8 @@ showPassword.addEventListener('click', function () {
 })
 
 //Mostrar/Ocultar CONFIRMAÇÃO DE SENHA
+
+
 showPasswordConfirmation.addEventListener('click', function () {
     if (passwordConfirmation.type == 'password') {
         passwordConfirmation.type = 'text'
